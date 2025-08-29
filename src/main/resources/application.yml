@@ -9,10 +9,14 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate #control how Hibernate manages db schema at startup - only check that the schema matches entities
     properties:
       hibernate:
         format_sql: true
+  flyway:
+    enabled: true #run flyway on startup
+    locations: classpath:db/migration
+    validate-on-migrate: true #validate checksum of applied migrations - fails if files were changed after being applied
 
 server:
   port: 8080
