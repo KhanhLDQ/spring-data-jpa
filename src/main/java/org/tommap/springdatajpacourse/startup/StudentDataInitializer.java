@@ -25,6 +25,8 @@ public class StudentDataInitializer implements ApplicationRunner {
             savedTom.setName("Tom Coder");
             Student updatedTom = studentRepository.save(savedTom); //update an existing object - after save() savedTom & updatedTom are different
             log.debug("[Update] Do tom & savedTom point to the same object: {}", savedTom == updatedTom);
+
+            studentRepository.deleteById(updatedTom.getId());
         }
     }
 }
