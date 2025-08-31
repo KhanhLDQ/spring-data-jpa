@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.tommap.springdatajpacourse.entity.Student;
 import org.tommap.springdatajpacourse.repository.StudentRepository;
@@ -11,6 +12,7 @@ import org.tommap.springdatajpacourse.repository.StudentRepository;
 @Component
 @RequiredArgsConstructor
 @Slf4j
+@Profile("!test")
 public class StudentDataInitializer implements ApplicationRunner {
     private final StudentRepository studentRepository;
 

@@ -6,7 +6,7 @@ services:
   db-config:
     extends:
       service: network-deploy-service
-    image: mysql
+    image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: tom
