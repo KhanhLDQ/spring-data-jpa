@@ -19,6 +19,14 @@ spring:
     validate-on-migrate: true #validate checksum of applied migrations - fails if files were changed after being applied
   main:
     banner-mode: off
+  docker:
+    compose:
+      enabled: true
+      file: docker-compose.yml
+      stop:
+        command: stop
+      start:
+        command: up
 
 server:
   port: 8080
@@ -27,6 +35,6 @@ logging:
   pattern:
     console: "%green(%d{yyyy-MM-dd HH:mm:ss.SSS}) %blue(%-5level) %magenta(${PID:- }) --- %red([%15.15thread]) %yellow(%-40.40logger{39}): %msg%n%wEx"
   level:
-    root: warn
+    root: info
     org.tommap.springdatajpacourse: debug
     org.hibernate.orm.jdbc.bind: trace
