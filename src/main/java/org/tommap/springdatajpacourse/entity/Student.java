@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedNativeQuery;
+import jakarta.persistence.NamedQuery;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +17,15 @@ import java.io.Serializable;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
+@NamedQuery(
+    name = "Student.findByNameLike_namedQuery",
+    query = "SELECT s FROM Student s WHERE s.name LIKE CONCAT('%', :name, '%')"
+)
+@NamedNativeQuery(
+    name = "Student.findByNameEndingWith_namedQuery",
+    query = "SELECT * FROM student WHERE name LIKE CONCAT('%', :name)",
+    resultClass = Student.class
+)
 public class Student implements Serializable {
     @Serial
     private static final long serialVersionUID = 3690222237570255927L;
