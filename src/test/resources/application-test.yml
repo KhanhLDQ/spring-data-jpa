@@ -1,10 +1,10 @@
 spring:
   jpa:
-    show-sql: false
+    show-sql: true
   docker:
     compose:
       enabled: false
 
 logging:
   level:
-    org.hibernate.orm.jdbc.bind: info
+    org.hibernate.orm.jdbc.bind: trace

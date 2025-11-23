@@ -34,3 +34,6 @@ build/
 
 # Database data
 data/
+
+# Controller
+src/main/java/org/tommap/springdatajpacourse/controller
